@@ -21,10 +21,6 @@ public class ServeSystem2000 : MonoBehaviour {
 
     private GameObject Ball;
 
-    int counter = 0;
-
-    Vector3 BallStart = new Vector3(0f, 5f, 0f);
-
     void Start()
     {
         InitiateCountDown();
@@ -70,7 +66,8 @@ public class ServeSystem2000 : MonoBehaviour {
             ServeBall(playerServeBall);
         }  
         timer -= Time.deltaTime;
-
+        if (!Ball)
+            return;
         if (Ball.transform.position.y < 1 && P1scoreInt != 7 && P2scoreInt != 7)
         {
             if (Ball.transform.position.x > 0)
